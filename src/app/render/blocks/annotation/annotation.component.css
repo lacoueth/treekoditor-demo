@@ -1,0 +1,16 @@
+.annotated {
+  background-color: #ffff0059;
+  cursor: pointer;
+}
+
+.annotation {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 49vw;
+  max-height: 30vh;
+  overflow: scroll;
+  background: #555;
+  border-radius: 6px 6px 0 0;
+  border: 2px #222;
+}

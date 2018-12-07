@@ -1,0 +1,52 @@
+<ng-container *ngIf="type === 'text'">
+  <app-text-block-edit
+    [text]="text"
+    (textEv)="updateText($event)"
+  ></app-text-block-edit>
+  <button class="delete-param-btn" (click)="addBlock()">Add block</button>
+  <button class="delete-param-btn" (click)="deleteBlock()">Delete block</button>
+</ng-container>
+
+<ng-container *ngIf="type !== 'text'">
+  <div class="inter-line">
+    <span class="brackets" (click)="developed = !developed">{{
+      '{' + '{ '
+    }}</span>
+    <b class="template-name">{{ type + ' ' }}</b>
+    <button *ngIf="developed" class="delete-param-btn" (click)="newParam()">
+      Add param.
+    </button>
+    <button *ngIf="developed" class="delete-param-btn" (click)="deleteBlock()">
+      Delete block
+    </button>
+    <span *ngIf="!developed" class="brackets">{{ '}' + '}' }}</span>
+  </div>
+
+  <div *ngIf="developed" class="inside-template">
+    <div
+      class="param"
+      *ngFor="let param of (attrs | keyvalue); trackBy: trackByParamsFn"
+    >
+      <span class="paramkey">{{ param.key }}</span>
+      <span class="paramequal">=</span>
+      <input
+        class="paramvalue"
+        [value]="param.value"
+        (keyup)="updateParam(param.key, $event.target.value)"
+      />
+      <button class="delete-param-btn" (click)="deleteParam(param.key)">
+        Delete
+      </button>
+    </div>
+
+    <app-render-edit
+      [blockList]="content"
+      (blEv)="updateContent($event)"
+    ></app-render-edit>
+  </div>
+
+  <div *ngIf="developed" class="inter-line">
+    <span class="brackets">{{ '}' + '}' }}</span>
+  </div>
+  <button class="delete-param-btn" (click)="addBlock()">Add block</button>
+</ng-container>

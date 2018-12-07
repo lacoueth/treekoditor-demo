@@ -1,0 +1,72 @@
+div.inside-template {
+  border-left: 1px solid #555;
+  padding: 0 0 0 10px;
+  margin: 0 0 0 10px;
+}
+
+div.param {
+  border-color: brown;
+  margin: 4px 0 4px 7px;
+  font-family: monospace;
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+}
+
+div.param span {
+  padding: 0;
+  margin: 0;
+}
+
+div.param .paramequal {
+  margin: 0 7px;
+}
+
+pre {
+  margin: 4px 0;
+  padding: 8px 0;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.template-name {
+  color: rgb(209, 181, 236);
+}
+
+.brackets {
+  color: lightgreen;
+  /* font-weight: bold; */
+}
+
+.separator {
+  color: blueviolet;
+}
+
+input.paramvalue {
+  display: inline-block;
+  color: orange;
+  border: 1px solid #777;
+  border-radius: 3px;
+  background: #555;
+  padding: 2px 0 2px 6px;
+  flex: 1 1 auto;
+}
+
+.paramkey {
+  color: lightskyblue;
+}
+
+.paramkey,
+.paramvalue,
+.separator,
+.brackets,
+.template-name {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.inter-line {
+  padding: 0;
+  margin: 4px 0;
+}

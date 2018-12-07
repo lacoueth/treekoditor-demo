@@ -1,0 +1,84 @@
+.display {
+  display: flex;
+  font-size: 18px;
+}
+
+.area {
+  display: block;
+  resize: none;
+
+  font-size: 13px;
+  height: 20vh;
+  width: 50vw;
+  padding: 8px;
+  background: #333;
+  color: white;
+  overflow: scroll;
+  margin: 0;
+  border: none;
+}
+.print {
+  width: 50vw;
+  height: 100vh;
+  padding: 14px;
+  /* font-size: 16px; */
+  font-weight: 400;
+  /* box-shadow: inset 1px 0 0 0 #888; */
+  overflow: scroll;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* font-family: 'Noto Serif TC', serif; */
+  /* font-family: 'Open Sans', sans-serif; */
+  /* font-family: 'Noto Serif', serif; */
+  color: #282828;
+  background: white;
+}
+
+.json {
+  width: 50vw;
+  height: 20vh;
+  padding: 8px;
+  overflow: scroll;
+  font-size: 13px;
+  border: none;
+  margin: 0;
+  background: #333;
+}
+
+.render-edit {
+  width: 50vw;
+  height: 60vh;
+  padding: 8px;
+  overflow: scroll;
+  font-size: 14px;
+  margin: 0;
+  /* border: 2px solid #888; */
+}
+
+.print img {
+  width: 100% !important;
+  border-radius: 6px;
+}
+
+.annotation-display {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50vw;
+  max-height: 300px;
+  overflow-y: scroll;
+  padding: 10px;
+  border: 2px solid white;
+  background: #fefefe;
+  color: black;
+
+  box-shadow: 0 -4px 4px -4px #aaa;
+
+  transition: all 400ms ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.annotation-display.closed {
+  transform: translateY(300px);
+}

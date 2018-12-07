@@ -1,0 +1,20 @@
+.hide-block {
+  border-radius: 6px;
+  border: 1px solid #888;
+  padding: 10px;
+}
+
+.head {
+  display: flex;
+}
+
+.head h5 {
+  flex: 1 1 auto;
+  margin: 4px;
+}
+
+.head button {
+  background: transparent;
+  font-size: 16px;
+  color: blue;
+}

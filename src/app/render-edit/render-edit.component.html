@@ -1,0 +1,11 @@
+<button class="delete-param-btn" (click)="newBlock('text', -1)">
+  Add block
+</button>
+<div *ngFor="let bl of blockList; let i = index; trackBy: trackByFn">
+  <app-render-edit-single-block
+    [block]="bl"
+    (newBlock)="newBlock($event, i)"
+    (deleteBl)="deleteBlock(i)"
+    (blockUpdate)="updateBlock($event, i)"
+  ></app-render-edit-single-block>
+</div>

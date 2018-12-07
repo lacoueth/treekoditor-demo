@@ -1,0 +1,14 @@
+img {
+    width: 100%;
+    border-radius: 6px;
+  }
+  
+  figure {
+    margin: 14px;
+  }
+  
+  figcaption {
+    opacity: 0.8;
+    text-align: center;
+    font-size: 15px;
+  }

@@ -1,0 +1,6 @@
+{
+  "javascript.preferences.quoteStyle": "single",
+  "tslint.autoFixOnSave": true,
+  "typescript.preferences.quoteStyle": "single",
+  "prettier.singleQuote": true
+}

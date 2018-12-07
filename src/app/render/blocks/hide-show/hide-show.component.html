@@ -1,0 +1,22 @@
+<div class="hide-block">
+  <div class="head">
+    <h5>{{ title }}</h5>
+    <button (click)="isHidden = !isHidden">
+      {{ isHidden ? 'Afficher' : 'Masquer' }}
+    </button>
+  </div>
+
+  <!-- <my-component first="bonjour" middle="bonjour" last="last"></my-component> -->
+
+  <!--
+    <second-component
+      first="'bonjour'"
+      middle="'bonjour'"
+      last="'last'"
+    ></second-component>
+  -->
+
+  <ng-container *ngIf="!isHidden && childNodes && childNodes.length">
+    <app-render *ngFor="let node of childNodes" [block]="node"></app-render>
+  </ng-container>
+</div>

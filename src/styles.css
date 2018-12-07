@@ -1,1 +1,145 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+TC');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,700');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600');
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  font-size: 18px;
+  /* width: 100%; */
+  /* height: 100%; */
+
+  background: #424242;
+  color: white;
+}
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  font-weight: 600;
+  color: black;
+}
+
+figure {
+  margin: 24px 0;
+}
+
+figcaption {
+  opacity: 0.8;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+span.annotated-text {
+  background-color: #ffff0059;
+  cursor: pointer;
+}
+
+.content-box {
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 6px;
+  padding: 10px;
+  margin: 24px 0;
+}
+
+.content-box.blue {
+  background: #7bbfff49;
+}
+
+.content-box h5 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.content-box p:first-of-type {
+  /* margin-top: 0; */
+}
+
+.content-box p:last-of-type {
+  margin-bottom: 7px;
+}
+
+.youtube-video-container {
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 24px 0;
+}
+
+.hide-block {
+  margin: 24px 0;
+  border-radius: 6px;
+  border: 1px solid rgba(136, 136, 136, 0.651);
+  padding: 10px;
+}
+
+.hide-block .hide-section {
+  transition: all 400ms ease;
+  overflow: hidden;
+}
+
+.hide-block .hide-section.closed {
+  height: 0;
+}
+
+.hide-block .hide-section.opened {
+  height: auto;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 14px; */
+}
+
+.head h5 {
+  flex: 1 1 auto;
+  margin: 2px 0;
+  font-weight: 500;
+  font-size: 15px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.head button {
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(0, 157, 255);
+  /* opacity: 0.6; */
+  cursor: pointer;
+  outline: none;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+}
+
+.print pre {
+  margin: 24px 0;
+  padding: 10px 14px;
+  background: #424242;
+  color: white;
+  border-radius: 6px;
+}
