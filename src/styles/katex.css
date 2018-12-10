@@ -1,0 +1,14 @@
+.katex-display {
+  display: flex !important;
+  justify-content: center;
+}
+
+.katex > .katex-html {
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
+.katex-display > .katex > .katex-html {
+  padding: 2px 4px;
+}

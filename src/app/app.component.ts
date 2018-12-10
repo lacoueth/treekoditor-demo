@@ -1,49 +1,39 @@
-import { Component, OnInit, ElementRef, AfterViewChecked } from '@angular/core';
-import {
-  preProcessTT,
-  renderTT,
-  getTipTapAST,
-  astToPlain
-} from '../chevrotain/render-tiptap';
-import { real_w_text_w_quotes } from '../chevrotain/input-tests';
+import { Component, OnInit } from '@angular/core';
 
 import * as _ from 'lodash';
-import { TTAst, TTBlock } from 'src/chevrotain/models/ttAst.model';
-declare const window: any;
+import { TTBlock } from 'src/chevrotain/models/ttAst.model';
+import { rt2ra } from 'src/utils/rt2ra';
+import { ra2ta } from 'src/utils/ra2ta';
+import { ta2rt } from 'src/utils/ta2rt';
+import { ta2pa } from 'src/utils/ta2pa';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 't-chevrotain';
+  rawText = '';
+  rawAST: any = { type: 'doc', content: [] };
+  tiptapAST: any = { type: 'doc', content: [] };
+  processedAST: any = { type: 'doc', content: [] };
+
+  versionKey = 'test-html';
+  showDiffsToggle = false;
 
   annotationContent = '';
 
-  value: string;
-  result: string;
-  tiptapAst: any = { type: 'doc', content: [] };
-  ttAstProcessed: TTBlock[];
-
-  plainValue: string;
-
-  astPlainToEditor: TTAst = { type: 'doc', content: [] };
-  astEditorToPlain: TTAst = { type: 'doc', content: [] };
-  jsonAst: TTAst = { type: 'doc', content: [] };
-
-  constructor(private el: ElementRef) {}
+  showRendered = true;
 
   ngOnInit() {
     const mystorage = window.localStorage;
-    const valueFromStorage = mystorage.getItem('test') || real_w_text_w_quotes;
+    this.rawText = mystorage.getItem(this.versionKey) || null;
+    this.updatePlain(this.rawText);
+  }
 
-    this.plainValue = valueFromStorage;
-
-    this.astPlainToEditor = getTipTapAST(valueFromStorage);
-    this.astEditorToPlain = this.astPlainToEditor;
-    this.jsonAst = this.astPlainToEditor;
-    this.ttAstProcessed = preProcessTT(this.astPlainToEditor.content);
-    this.plainValue = astToPlain(this.astEditorToPlain);
+  changeVersion(i: number) {
+    this.versionKey = i === 1 ? 'test-html' : 'test-html-2';
+    this.ngOnInit();
   }
 
   trackByFn(index, item) {
@@ -54,59 +44,37 @@ export class AppComponent implements OnInit {
     return JSON.stringify(item);
   }
 
-  update(value: string) {
-    this.value = value;
-    window.localStorage.setItem('test', value);
-    this.buildTiptapAst(value);
-  }
-
   updateLocalValue() {
-    window.localStorage.setItem('test', this.plainValue);
+    window.localStorage.setItem(this.versionKey, this.rawText);
   }
 
   // build AST, update preProcessed and update view only
   updatePlain(plainInput: string) {
-    try {
-      this.astPlainToEditor = getTipTapAST(plainInput);
-      this.jsonAst = this.astPlainToEditor;
-
-      this.ttAstProcessed = preProcessTT(this.astPlainToEditor.content);
-      this.plainValue = plainInput;
-      this.updateLocalValue();
-      // this.renderTipTapAst(this.tiptapAst);
-    } catch (err) {
-      // console.log('erreur tip tap tree', err);
-    }
+    this.rawText = plainInput;
+    this.updateLocalValue();
+    this.rawAST = rt2ra(plainInput);
+    this.tiptapAST = ra2ta(this.rawAST);
+    this.processedAST = ta2pa(this.tiptapAST);
   }
 
   // update text and view
   updateFromTree(blockList: TTBlock[]) {
-    this.astEditorToPlain.content = blockList;
-    this.jsonAst = this.astEditorToPlain;
-    this.plainValue = astToPlain(this.astEditorToPlain);
+    this.tiptapAST.content = blockList;
+    this.processedAST = ta2pa(this.tiptapAST);
+    this.rawText = ta2rt(this.tiptapAST);
     this.updateLocalValue();
-    this.ttAstProcessed = preProcessTT(this.astEditorToPlain.content);
-    // console.log(this.ttAstProcessed);
+    this.rawAST = rt2ra(this.rawText);
   }
 
-  buildTiptapAst(input) {
-    try {
-      this.tiptapAst = getTipTapAST(input);
-      this.renderTipTapAst(this.tiptapAst);
-    } catch (err) {
-      // console.log('erreur tip tap tree', err.message);
-    }
-  }
-
-  renderTipTapAst(ttAst: TTAst) {
-    this.tiptapAst = ttAst;
-    this.ttAstProcessed = preProcessTT(this.tiptapAst.content);
-
-    this.value = astToPlain(this.tiptapAst);
-  }
-
-  logev(ev) {
-    // console.log(ev.detail);
+  showAnnotation(ev) {
     this.annotationContent = JSON.parse(ev.detail.content);
+  }
+
+  showDiffs() {
+    this.showDiffsToggle = true;
+  }
+
+  logAST(input) {
+    console.log(input);
   }
 }

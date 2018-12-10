@@ -1,0 +1,54 @@
+span.removed {
+  background: rgba(255, 0, 0, 0.233);
+  color: red;
+}
+
+span.added {
+  background: rgba(0, 128, 0, 0.329);
+  color: green;
+}
+
+span.untouched {
+  color: grey;
+}
+
+span.empty {
+  height: 1em;
+}
+
+pre.lines-count {
+  /* background: #303030; */
+  /* color: #f1f1f1; */
+  /* padding: 10px 16px; */
+  /* border-radius: 2px; */
+  /* border-top: 4px solid #00aeef; */
+  /* -moz-box-shadow: inset 0 0 10px #000; */
+  /* box-shadow: inset 0 0 10px #000; */
+  counter-reset: line;
+}
+pre.lines-count code {
+  white-space: pre-line;
+  word-break: break-all;
+
+  margin: 4px 0 0 2em;
+  display: inline-flex;
+  padding: 0;
+  position: relative;
+  color: grey;
+  /* line-height: 1.5rem; */
+}
+pre.lines-count code:before {
+  counter-increment: line;
+
+  content: counter(line);
+  display: block;
+  position: absolute;
+
+  margin-left: -2.4em;
+
+  font-size: 0.9em;
+  color: lightgray;
+
+  text-align: right;
+  width: 2em;
+}

@@ -1,0 +1,26 @@
+<div class="top-versions-btns">
+  <button (click)="rawByWords(); showRaw = true">Raw words diff</button>
+  <button (click)="rawByLines(); showRaw = true">Raw lines diff</button>
+  <button (click)="htmlDiff(); showRaw = false">Html diff</button>
+</div>
+<div class="grid-dis">
+  <ng-container *ngIf="showRaw">
+    <pre class="raw">{{ rawText1 }}</pre>
+    <pre class="raw">{{ rawText2 }}</pre>
+    <div class="print-line-container">
+      <div *ngFor="let line of rawDiffs; let i = index" class="print-line">
+        <span class="number">{{ i }}</span>
+        <pre [innerHTML]="line | safe: 'html'"></pre>
+      </div>
+    </div>
+    <!--
+      <pre class="lines-count" [innerHTML]="rawDiffs | safe: 'html'"></pre>
+    -->
+  </ng-container>
+  <ng-container *ngIf="!showRaw">
+    <pre class="raw">{{ htmlResult1 }}</pre>
+    <pre class="raw">{{ htmlResult2 }}</pre>
+    <section class="print" [innerHTML]="rawHtmlDiffs | safe: 'html'"></section>
+    <!-- <pre>{{ htmlDiffs | json }}</pre> -->
+  </ng-container>
+</div>

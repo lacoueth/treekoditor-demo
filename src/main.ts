@@ -10,8 +10,8 @@ if (environment.production) {
   enableProdMode();
 }
 
+defineCustomElements(window);
+
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch(err => console.log(err));
-
-defineCustomElements(window);

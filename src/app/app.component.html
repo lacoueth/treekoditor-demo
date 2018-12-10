@@ -1,29 +1,55 @@
-<div class="display" (onOpenAnnotation)="logev($event)">
+<div class="display" (onOpenAnnotation)="showAnnotation($event)">
   <div>
+    <div class="top-versions-btns">
+      <button
+        [class.selected]="versionKey === 'test-html'"
+        (click)="changeVersion(1)"
+      >
+        Version 1</button
+      ><button
+        [class.selected]="versionKey !== 'test-html'"
+        (click)="changeVersion(2)"
+      >
+        Version 2
+      </button>
+      <button (click)="showDiffs()">Show diffs</button>
+    </div>
     <textarea
+      (ngModelChange)="updatePlain($event)"
+      [ngModel]="rawText"
       name="area"
-      (keyup)="updatePlain($event.target.value)"
       class="area"
-      [value]="plainValue"
     ></textarea>
+
     <div class="render-edit">
       <app-render-edit
-        [blockList]="astPlainToEditor.content"
+        [blockList]="tiptapAST?.content"
         [trackRendering]="false"
         (blEv)="updateFromTree($event)"
       ></app-render-edit>
     </div>
+
     <code>
-      <pre class="json">{{ jsonAst | json }}</pre>
+      <pre class="json">{{ tiptapAST | json }}</pre>
     </code>
   </div>
   <div>
     <div class="print">
-      <app-render-inner-html
-        *ngFor="let block of ttAstProcessed; trackBy: trackByBlockFn"
-        [block]="block"
-      ></app-render-inner-html>
-      <!-- <div [innerHTML]="result | safe: 'html'"></div> -->
+      <div class="top-versions-btns">
+        <button (click)="showRendered = true">Rendered</button>
+        <button (click)="showRendered = false">Serialized</button>
+      </div>
+      <ng-container *ngIf="showRendered">
+        <section
+          *ngFor="let block of processedAST.content; trackBy: trackByBlockFn"
+          [innerHTML]="block | renderNode | safe: 'html'"
+        ></section>
+      </ng-container>
+      <ng-container *ngIf="!showRendered">
+        <pre><code>
+          {{ processedAST | renderNode }}
+        </code></pre>
+      </ng-container>
     </div>
   </div>
 </div>
@@ -34,4 +60,17 @@
     <button (click)="annotationContent = null">Masquer</button>
   </div>
   <div [innerHTML]="annotationContent | safe: 'html'"></div>
+</div>
+
+<div *ngIf="showDiffsToggle" class="show-diffs-window">
+  <div class="top-versions-btns">
+    <button class="selected" (click)="showDiffsToggle = false">Fermer</button>
+  </div>
+  <app-diffs-printer></app-diffs-printer>
+</div>
+
+<div class="debug-btns">
+  <button (click)="logAST(rawAST)">RawAST</button>
+  <button (click)="logAST(tiptapAST)">TiptapAST</button>
+  <button (click)="logAST(processedAST)">ProcessedAST</button>
 </div>

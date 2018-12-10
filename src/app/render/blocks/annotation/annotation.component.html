@@ -1,6 +1,0 @@
-<span class="annotated" (click)="showAnnotation = true">{{ annotated }}</span>
-
-<div class="annotation" *ngIf="showAnnotation && annotation.length">
-  <button (click)="showAnnotation = false">Masquer</button>
-  <app-render *ngFor="let node of annotation" [block]="node"></app-render>
-</div>

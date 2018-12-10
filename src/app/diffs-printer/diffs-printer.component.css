@@ -1,0 +1,59 @@
+.grid-dis {
+  height: calc(100% - 100px);
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-rows: 1fr;
+}
+
+pre {
+  overflow: scroll;
+}
+
+pre.raw {
+  margin: 2px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 12px;
+}
+
+span.removed {
+  background: rgba(255, 0, 0, 0.233);
+  color: red;
+}
+
+span.added {
+  background: rgba(0, 128, 0, 0.329);
+  color: green;
+}
+
+span.untouched {
+  color: grey;
+}
+
+.print-line-container {
+  overflow-y: scroll;
+}
+
+.print-line {
+  display: grid;
+  grid-template-columns: 2em 1fr;
+  grid-column-gap: 10px;
+  /* width: 100%; */
+  margin: 4px 0;
+  color: grey;
+}
+
+.print-line pre {
+  white-space: pre-line;
+  word-break: break-all;
+
+  margin: 0;
+}
+
+.print-line .number {
+  color: rgb(180, 180, 180);
+  font-size: 14px;
+  text-align: right;
+}
