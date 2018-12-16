@@ -1,0 +1,23 @@
+.trko-box-container {
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 6px;
+  padding: 10px;
+  margin: 24px 0;
+}
+
+.trko-box-container.blue {
+  background: #7bbfff49;
+}
+
+.trko-box-container h5 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.trko-box-container p:first-of-type {
+  /* margin-top: 0; */
+}
+
+.trko-box-container p:last-of-type {
+  margin-bottom: 7px;
+}

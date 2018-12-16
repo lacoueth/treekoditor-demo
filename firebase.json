@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "dist/t-chevrotain",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

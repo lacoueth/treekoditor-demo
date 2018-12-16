@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { rt2ra } from 'src/utils/rt2ra';
+/* import { rt2ra } from 'src/utils/rt2ra';
 import { ra2ta } from 'src/utils/ra2ta';
-import { ta2pa, renderTTBlock } from 'src/utils/ta2pa';
+import { ta2pa, renderTTBlock } from 'src/utils/ta2pa'; */
+
+import { rt2ra, ra2ta, ta2pa, pa2rh } from 'treekoditor';
 
 import * as JsDiff from 'diff';
 import * as _ from 'lodash';
 
 const options = {
-  preset: 'bem',
-  ignoreAttributes: ['id']
-  /* compareAttributesAsJSON: [],
+  // preset: 'bem',
+  ignoreAttributes: ['id'],
+  compareAttributesAsJSON: [],
   ignoreWhitespaces: false,
   ignoreComments: true,
   ignoreEndTags: false,
-  ignoreDuplicateAttributes: false */
+  ignoreDuplicateAttributes: false
 };
 
 import { HtmlDiffer } from 'html-differ';
@@ -44,8 +46,8 @@ export class DiffsPrinterComponent implements OnInit {
     this.rawText1 = lstore.getItem('test-html');
     this.rawText2 = lstore.getItem('test-html-2');
 
-    this.htmlResult1 = renderTTBlock(ta2pa(ra2ta(rt2ra(this.rawText1))));
-    this.htmlResult2 = renderTTBlock(ta2pa(ra2ta(rt2ra(this.rawText2))));
+    this.htmlResult1 = pa2rh(ta2pa(ra2ta(rt2ra(this.rawText1))));
+    this.htmlResult2 = pa2rh(ta2pa(ra2ta(rt2ra(this.rawText2))));
 
     this.rawByWords();
   }

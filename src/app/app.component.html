@@ -1,4 +1,4 @@
-<div class="display" (onOpenAnnotation)="showAnnotation($event)">
+<div class="display" (annotationClick)="showAnnotation($event)">
   <div>
     <div class="top-versions-btns">
       <button
@@ -46,16 +46,19 @@
         ></section>
       </ng-container>
       <ng-container *ngIf="!showRendered">
-        <pre><code>
-          {{ processedAST | renderNode }}
-        </code></pre>
+        <trko-doc-printer [mdHtmlContent]="rawText"></trko-doc-printer>
+        <!--
+          <pre><code>
+            {{ processedAST | renderNode }}
+          </code></pre>
+        -->
       </ng-container>
     </div>
   </div>
 </div>
 
 <div class="annotation-display" [class.closed]="!annotationContent">
-  <div class="head">
+  <div class="trko-hide-show-head">
     <h5 (click)="annotationContent = null">Annotation</h5>
     <button (click)="annotationContent = null">Masquer</button>
   </div>

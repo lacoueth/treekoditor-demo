@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import * as _ from 'lodash';
 import { TTBlock } from 'src/chevrotain/models/ttAst.model';
-import { rt2ra } from 'src/utils/rt2ra';
-import { ra2ta } from 'src/utils/ra2ta';
-import { ta2rt } from 'src/utils/ta2rt';
-import { ta2pa } from 'src/utils/ta2pa';
+import { rt2ra, ra2ta, ta2pa, ta2rt } from 'treekoditor';
+import { INITIAL_VALUE } from 'src/assets/initial-value';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +25,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     const mystorage = window.localStorage;
-    this.rawText = mystorage.getItem(this.versionKey) || null;
+    this.rawText = mystorage.getItem(this.versionKey) || INITIAL_VALUE;
     this.updatePlain(this.rawText);
   }
 
@@ -67,7 +65,7 @@ export class AppComponent implements OnInit {
   }
 
   showAnnotation(ev) {
-    this.annotationContent = JSON.parse(ev.detail.content);
+    this.annotationContent = JSON.parse(ev.detail.annotation);
   }
 
   showDiffs() {

@@ -4,7 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import { defineCustomElements } from 't-stencil/dist/loader';
+import { defineCustomElements } from 'treekomponents/dist/loader';
 
 if (environment.production) {
   enableProdMode();
