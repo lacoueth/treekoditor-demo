@@ -66,10 +66,9 @@ ul ul {
   padding-inline-start: 20px;
 }
 
-.trko-youtube-video-container {
+.trko-youtube-video-iframe-container {
   border-radius: 6px;
   overflow: hidden;
-  margin: 24px 0;
 }
 
 .print pre {
