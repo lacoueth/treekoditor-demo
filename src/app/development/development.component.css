@@ -1,0 +1,76 @@
+.display {
+  display: flex;
+}
+
+.area {
+  display: block;
+  resize: none;
+
+  font-size: 13px;
+  height: 20vh;
+  width: 50vw;
+  padding: 8px;
+  background: #333;
+  color: white;
+  overflow: scroll;
+  margin: 0;
+  border: none;
+}
+
+.json {
+  width: 50vw;
+  height: 20vh;
+  padding: 8px;
+  overflow: scroll;
+  font-size: 13px;
+  border: none;
+  margin: 0;
+  background: #333;
+  color: white;
+}
+
+.render-edit {
+  background: #424242;
+  color: white;
+  width: 50vw;
+  height: 60vh;
+  padding: 8px;
+  overflow: scroll;
+  font-size: 14px;
+  margin: 0;
+  /* border: 2px solid #888; */
+}
+
+.print img {
+  width: 100% !important;
+  border-radius: 6px;
+}
+
+.debug-btns {
+  position: fixed;
+  bottom: 0;
+  right: 50vw;
+  z-index: 100;
+  display: flex;
+}
+
+.debug-btns button {
+  margin: 0 10px 10px 0;
+  padding: 4px 10px;
+  background: rgb(245, 159, 0);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+}
+
+.show-diffs-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f5f5;
+}

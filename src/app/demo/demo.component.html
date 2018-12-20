@@ -1,0 +1,42 @@
+<div class="display" (annotationClick)="showAnnotation($event)">
+  <div>
+    <div class="top-versions-btns">
+      <button [class.selected]="editorMode === 'text'" (click)="toPlain()">
+        Text</button
+      ><button [class.selected]="editorMode !== 'text'" (click)="toTree()">
+        Rich
+      </button>
+    </div>
+    <textarea
+      *ngIf="editorMode == 'text'"
+      (ngModelChange)="updatePlain($event)"
+      [ngModel]="rawText"
+      name="area"
+      class="area"
+    ></textarea>
+
+    <div class="render-edit" *ngIf="editorMode !== 'text'">
+      <app-render-edit
+        [blockList]="tiptapAST?.content"
+        [trackRendering]="false"
+        (blEv)="updateFromTree($event)"
+      ></app-render-edit>
+    </div>
+  </div>
+  <div>
+    <div class="print">
+      <section
+        *ngFor="let block of processedAST.content; trackBy: trackByBlockFn"
+        [innerHTML]="block | renderNode | safe: 'html'"
+      ></section>
+    </div>
+  </div>
+</div>
+
+<div class="annotation-display" [class.closed]="!annotationContent">
+  <div class="trko-hide-show-head">
+    <h5 (click)="annotationContent = null">Annotation</h5>
+    <button (click)="annotationContent = null">Masquer</button>
+  </div>
+  <div [innerHTML]="annotationContent | safe: 'html'"></div>
+</div>

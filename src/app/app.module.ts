@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -14,6 +15,8 @@ import { RenderInnerHtmlComponent } from './render-inner-html/render-inner-html.
 import { RenderEditSingleBlockComponent } from './render-edit/render-edit-single-block/render-edit-single-block.component';
 import { RenderNodePipe } from './pipes/render-node.pipe';
 import { DiffsPrinterComponent } from './diffs-printer/diffs-printer.component';
+import { DevelopmentComponent } from './development/development.component';
+import { DemoComponent } from './demo/demo.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +27,21 @@ import { DiffsPrinterComponent } from './diffs-printer/diffs-printer.component';
     RenderInnerHtmlComponent,
     RenderEditSingleBlockComponent,
     RenderNodePipe,
-    DiffsPrinterComponent
+    DiffsPrinterComponent,
+    DevelopmentComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     TextareaAutosizeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '', component: DemoComponent },
+      { path: 'dev', component: DevelopmentComponent },
+      { path: '**', redirectTo: '' }
+    ])
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

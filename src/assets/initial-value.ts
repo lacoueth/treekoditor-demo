@@ -4,18 +4,18 @@ export const INITIAL_VALUE = `
 
 ## Sous-titre
 
-Ensuite pas de titre enfin si quand $bonjour$ même $\forall y \in \R$. Et du code un peu \`inline\` puis c'est tout pour l'instant :smile:.
+Ensuite pas de titre enfin si quand $bonjour$ même $\\forall y \\in \\R$. Et du code un peu \`inline\` puis c'est tout pour l'instant :smile:.
 
 -----
 
 - un block texte encore ici;
 - un block texte encore ici.
-- <trko-annotation an="Hello dans une annotation plus longue">A l'intérieur de l'annotation.<trko-box heading="Bonjour">Bonjour on est ivi ok ok.</trko-box></trko-annotation> dans la même liste;
+- <trko-annotation annotated="Hello dans une annotation plus longue">A l'intérieur de l'annotation.<trko-box heading="Bonjour">Bonjour on est ivi ok ok.</trko-box></trko-annotation> dans la même liste;
 - un block texte encore ici;
 - un block texte encore ici.
 
 <trko-box heading="Bonjour le théorème" class="theorem blue">Hello again ici ! plus long.
-$$f(x) = \sum_{i=1}^{n} 2^i$$<trko-box heading="demon">$$f(x) = \sum_{i=1}^{k} 2^i$$</trko-box></trko-box><trko-hide-show heading="Démonstration">Ici se trouve la démonstration ok again.<trko-youtube-video video-id="TiV4IWAIFL0" description="Une vidéo sympathique"></trko-youtube-video></trko-hide-show><trko-youtube-video video-id="5LlPJeu9F8I"></trko-youtube-video>
+$$f(x) = \\sum_{i=1}^{n} 2^i$$<trko-box heading="demon">$$f(x) = \\sum_{i=1}^{k} 2^i$$</trko-box></trko-box><trko-hide-show heading="Démonstration">Ici se trouve la démonstration ok again.<trko-youtube-video video-id="TiV4IWAIFL0" description="Une vidéo sympathique"></trko-youtube-video></trko-hide-show><trko-youtube-video video-id="5LlPJeu9F8I"></trko-youtube-video>
 
 #### Table de tests
 
