@@ -30,7 +30,7 @@
     "rxjs": "^6.0.0",
     "showdown": "^1.9.0",
     "treekoditor": "^1.0.5",
-    "treekomponents": "0.0.6",
+    "treekomponents": "0.0.7",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

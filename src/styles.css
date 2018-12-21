@@ -14,6 +14,7 @@
 @import './styles/diffs.css';
 @import './styles/box.css';
 @import './styles/hide-show.css';
+@import './styles/blockquote.css';
 
 html,
 body {

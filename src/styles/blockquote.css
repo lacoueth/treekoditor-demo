@@ -1,0 +1,28 @@
+blockquote {
+  opacity: 0.7;
+  /* font-family: Georgia, 'Times New Roman', Times, serif; */
+  margin: 24px 0 10px 0;
+  /* font-size: 17px; */
+  font-style: italic;
+  quotes: '«\00A0' '\00A0»';
+  font-size: 1.1em;
+}
+
+/* blockquote::before {
+  content: open-quote;
+}
+
+blockquote::after {
+  content: close-quote;
+} */
+
+.trko-blockquote-container {
+  margin: 34px 0;
+}
+
+.trko-blockquote-author {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: -10px;
+  opacity: 0.8;
+}
