@@ -1,6 +1,6 @@
 # Treekoditor Demo
 
-This is a demo of [Treekoditor](https://github.com/lacoueth/treekoditor) (md-tex-html parser) with [Treekomponents](https://github.com/lacoueth/treekomponents), built with Angular 6.
+This is a demo of [Treekoditor](https://github.com/lacoueth/treekoditor) (markdown-tex-html parser) with [Treekomponents](https://github.com/lacoueth/treekomponents), built with Angular 6.
 
 ## Routes
 

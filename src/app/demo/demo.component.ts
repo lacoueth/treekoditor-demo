@@ -50,7 +50,9 @@ export class DemoComponent implements OnInit {
     this.rawText = plainInput;
     this.updateLocalValue();
     this.rawAST = rt2ra(plainInput);
+    // console.log(this.rawAST);
     this.tiptapAST = ra2ta(this.rawAST);
+    // console.log(this.tiptapAST);
     this.processedAST = ta2pa(this.tiptapAST);
   }
 

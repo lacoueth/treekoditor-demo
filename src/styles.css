@@ -7,14 +7,26 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700');
 
 @import './styles/headings.css';
-@import './styles/figures.css';
+/* @import './styles/figures.css'; */
 @import './styles/annotations.css';
 @import './styles/tables.css';
 @import './styles/katex.css';
 @import './styles/diffs.css';
-@import './styles/box.css';
-@import './styles/hide-show.css';
+/* @import './styles/box.css'; */
+/* @import './styles/hide-show.css'; */
 @import './styles/blockquote.css';
+
+:root {
+  --box-color: #0099ff;
+  --youtube-color: red;
+  --border-radius: 16px;
+  --background: #f5f5f5;
+  --primary-color: #0099ff;
+  --opacit-bg: #00000079;
+  --opacit-bg-light: #ffffffb4;
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
 html,
 body {
